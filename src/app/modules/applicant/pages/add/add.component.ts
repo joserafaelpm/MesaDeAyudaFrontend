@@ -5,7 +5,7 @@ import { AuthService } from '@core/auth/auth.service';
 import { ActivityService } from '@core/services/activity.service';
 import { ApplicantService } from '@core/services/applicant.service';
 import { CategoryService } from '@core/services/category.service';
-import { IActivity, ICategory, IApplication } from '@data/interfaces/http/index';
+import { IActivityList, ICategory, IApplicationCreate } from '@data/interfaces/http/index';
 
 @Component({
   selector: 'app-add',
@@ -15,9 +15,9 @@ import { IActivity, ICategory, IApplication } from '@data/interfaces/http/index'
 export class AddComponent implements OnInit {
 
   categories!: ICategory[];
-  activities!: IActivity[];
-  activitiesCopy!: IActivity[];
-  applicant = {} as IApplication;
+  activities!: IActivityList[];
+  activitiesCopy!: IActivityList[];
+  applicant = {} as IApplicationCreate;
 
   constructor(
     private router: Router,
@@ -48,7 +48,7 @@ export class AddComponent implements OnInit {
   }
 
   filterActivities(idCategory: number) {
-    this.activitiesCopy = this.activities.filter(x => x.categoria == idCategory);
+    this.activitiesCopy = this.activities.filter(x => x.categoria.id == idCategory);
   }
 
   changeCategory(event: Event) {

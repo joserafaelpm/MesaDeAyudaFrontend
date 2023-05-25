@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ApplicantService } from '@app/core/services/applicant.service';
 
-import { IActivity, IApplication, IState } from '@app/data/interfaces/http';
+import { IApplicationList } from '@app/data/interfaces/http';
 
 @Component({
   selector: 'app-details',
@@ -11,7 +11,7 @@ import { IActivity, IApplication, IState } from '@app/data/interfaces/http';
 })
 export class DetailsComponent implements OnInit {
 
-  applicant!: IApplication;
+  applicant!: IApplicationList;
   idApplication!: number;
 
   constructor(
@@ -29,20 +29,6 @@ export class DetailsComponent implements OnInit {
       .subscribe(res => {
         this.applicant = res;
       })
-  }
-
-  getActivity(activity: number | IActivity): string {
-    if(typeof activity === 'number') {
-      return activity.toString();
-    }
-    return activity.descripcion!;
-  }
-
-  getState(state: number | IState): string {
-    if(typeof state === 'number') {
-      return state.toString();
-    }
-    return state.nombre!;
   }
 
 }

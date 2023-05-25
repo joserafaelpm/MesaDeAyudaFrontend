@@ -22,14 +22,14 @@
                                 <th>Fecha de Entrega</th>
                                 <th>Fecha de Cierre</th>
                                 <th>Action</th> 
-                            </tr>
+                                </tr>
                         </thead>
                         <tbody>
                             <tr *ngFor="let solicitud of solicitudes;">
                                 <td>{{ solicitud.id }}</td>
-                                <td>{{ solicitud.usuario_solicitante }}</td>
-                                <td>{{ solicitud.actividad }}</td>
-                                <td>{{ solicitud.estado }}</td>
+                                <td>{{ solicitud.usuario_solicitante.first_name }}</td>
+                                <td>{{ solicitud.actividad.descripcion }}</td>
+                                <td>{{ solicitud.estado.nombre }}</td>
                                 <td>{{ solicitud.fecha_inicio | date: 'dd/MM/yyyy' }}</td>
                                 <td>{{ solicitud.fecha_entrega | date: 'dd/MM/yyyy' }}</td>
                                 <td>{{ solicitud.fecha_cierre | date: 'dd/MM/yyyy' }}</td>

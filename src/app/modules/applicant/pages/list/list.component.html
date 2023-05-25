@@ -29,8 +29,8 @@
                             <tr *ngFor="let solicitud of solicitudes;">
                                 <td>{{ solicitud.id }}</td>
                                 <td>{{ solicitud.fecha | date: 'dd/MM/yyyy' }}</td>
-                                <td >{{ getActivity(solicitud.actividad!) }}</td>
-                                <td>{{ getState(solicitud.estado!) }}</td>
+                                <td >{{ solicitud.actividad.descripcion }}</td>
+                                <td>{{ solicitud.estado.nombre }}</td>
                                 <td>
                                     <div class="form-button-action">
                                         <a [routerLink]="['/applicant/detail/', solicitud.id]"

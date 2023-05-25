@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 import { environment } from '@env/environment';
-import { IApplication } from '@data/interfaces/http/application.interface';
+import { IApplicationCreate, IApplicationList } from '@data/interfaces/http';
 import { APPLICANT_ROUTES } from '@app/data/constants/routes/http-api.const';
 
 @Injectable({
@@ -16,20 +16,20 @@ export class ApplicantService {
   constructor(private http: HttpClient) { }
 
   
-  getApplicantById(idApplicant: number): Observable<IApplication> {
-    return this.http.get<IApplication>(`${this.url}/${APPLICANT_ROUTES.applicant_Get}/${idApplicant}`);
+  getApplicantById(idApplicant: number): Observable<IApplicationList> {
+    return this.http.get<IApplicationList>(`${this.url}/${APPLICANT_ROUTES.applicant_Get}/${idApplicant}`);
   }
 
-  getApplicant(): Observable<IApplication[]>{
-    return this.http.get<IApplication[]>(`${this.url}/${APPLICANT_ROUTES.applicant_List}/`);
+  getApplicant(): Observable<IApplicationList[]>{
+    return this.http.get<IApplicationList[]>(`${this.url}/${APPLICANT_ROUTES.applicant_List}/`);
   }
 
-  creatApplicant(applicant:IApplication): Observable<IApplication>{
-    return this.http.post<IApplication>(`${this.url}/${APPLICANT_ROUTES.applicant_Create}/`, JSON.stringify(applicant));
+  creatApplicant(applicant:IApplicationCreate): Observable<IApplicationList>{
+    return this.http.post<IApplicationList>(`${this.url}/${APPLICANT_ROUTES.applicant_Create}/`, JSON.stringify(applicant));
   }
 
-  updateApplicant(idApplicant: number, applicant:IApplication): Observable<IApplication>{
-    return this.http.put<IApplication>(`${this.url}/${APPLICANT_ROUTES.applicant_Update}/${idApplicant}`, JSON.stringify(applicant));
+  updateApplicant(idApplicant: number, applicant:IApplicationCreate): Observable<IApplicationList>{
+    return this.http.put<IApplicationList>(`${this.url}/${APPLICANT_ROUTES.applicant_Update}/${idApplicant}`, JSON.stringify(applicant));
   }
 
 

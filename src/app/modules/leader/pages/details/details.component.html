@@ -8,15 +8,15 @@
         <div class="card-body">
             <div class="form-group">
                 <label for="exampleFormControlSelect1"><b>Categoria</b></label>
-                <input class="form-control"id="categoria" name="categoria" [(ngModel)]="applicant.actividad" value="Categoria"  disabled>
+                <input class="form-control"id="categoria" name="categoria" [(ngModel)]="applicantList.actividad.categoria.descripcion" value="Categoria"  disabled>
             </div>
             <div class="form-group">
                 <label for="exampleFormControlSelect1"><b>Actividad</b></label>
-                <input class="form-control" id="exampleFormControlSelect1"  [(ngModel)]="applicant.actividad" value="Pantalla azul" disabled>
+                <input class="form-control" id="exampleFormControlSelect1"  [(ngModel)]="applicantList.actividad.descripcion" value="Pantalla azul" disabled>
             </div>
             <div class="form-group">
                 <label for="exampleFormControlSelect1"><b>Estado</b></label>
-                <select class="form-control" id="exampleFormControlSelect1" [(ngModel)]="applicant.estado" value="" >
+                <select class="form-control" id="exampleFormControlSelect1" [(ngModel)]="applicantList.estado.nombre" value="" >
                     <option value="1">En tramite</option>
                     <option value="2">Rechazada</option>
                 </select>
@@ -24,41 +24,41 @@
             <div class="form-group">
                 <label><b>Fecha de ristro</b></label>
                 <div class="input-group">
-                    <input type="datetime" class="form-control" id="datepicker" name="datepicker" value="{{applicant.fecha | date: 'dd/MM/yyyy'}}"  disabled>
+                    <input type="datetime" class="form-control" id="datepicker" name="datepicker" value="{{ applicantList.fecha | date: 'dd/MM/yyyy' }}"  disabled>
                 </div>
             </div>
             <div class="form-group">
                 <label><b>Fecha de Inicio</b></label>
                 <div class="input-group">
-                    <input type="datetime"  class="form-control" id="datepicker" value="{{applicant.fecha_inicio | date: 'dd/MM/yyyy'}}" placeholder="dd/MM/yyyy" name="datepicker">
+                    <input type="datetime"  class="form-control" id="datepicker" value="{{ applicantList.fecha_inicio | date: 'dd/MM/yyyy' }}" placeholder="dd/MM/yyyy" name="datepicker">
                 </div>
             </div>
             <div class="form-group">
                 <label><b>Fecha de Entrega</b></label>
                 <div class="input-group">
-                    <input type="datetime" class="form-control" id="datepicker" value="{{applicant.fecha_entrega | date: 'dd/MM/yyyy'}}" placeholder="dd/MM/yyyy" name="datepicker">
+                    <input type="datetime" class="form-control" id="datepicker" value="{{ applicantList.fecha_entrega | date: 'dd/MM/yyyy' }}" placeholder="dd/MM/yyyy" name="datepicker">
                 </div>
             </div>
             <div class="form-group">
                 <label><b>Fecha de Cierre</b></label>
                 <div class="input-group">
-                    <input type="datetime" class="form-control" id="datepicker" value="{{applicant.fecha_cierre | date: 'dd/MM/yyyy'}}" placeholder="dd/MM/yyyy" name="datepicker" disabled>
+                    <input type="datetime" class="form-control" id="datepicker" value="{{applicantList.fecha_cierre | date: 'dd/MM/yyyy'}}" placeholder="dd/MM/yyyy" name="datepicker" disabled>
                 </div>
             </div>
             <div class="form-group">
                 <label for="exampleFormControlSelect1"><b>Tecnico asignado</b></label>
-                <select class="form-control" id="tecnico" name="tecnico" [(ngModel)]="applicant.usuario_tecnico" value="" >
+                <select class="form-control" id="tecnico" name="tecnico" [(ngModel)]="applicantList.usuario_tecnico!.first_name">
                     <option>Jorge Perez</option>
                     <option>Carlos Perez</option>
                 </select>
             </div>
             <div class="form-group">
                 <label for="comment"><b>Observaciones</b></label>
-                <textarea class="form-control" id="descripcion" name="descripcion" [(ngModel)]="applicant.observacion" rows="5" placeholder="Ninguna observacion"></textarea>
+                <textarea class="form-control" id="descripcion" name="descripcion" [(ngModel)]="applicantList.observacion" rows="5" placeholder="Ninguna observacion"></textarea>
             </div>
             <div class="form-group">
                 <label for="comment"><b>Descripcion</b></label>
-                <textarea class="form-control" id="descripcion" name="descripcion" [(ngModel)]="applicant.descripcion" rows="5" placeholder="Por favor ser explicito y claro." disabled></textarea>
+                <textarea class="form-control" id="descripcion" name="descripcion" [(ngModel)]="applicantList.descripcion" rows="5" placeholder="Por favor ser explicito y claro." disabled></textarea>
             </div>
         </div>
         <div class="card-action">

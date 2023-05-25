@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { ApplicantService } from '@app/core/services/applicant.service';
-import { IApplication } from '@app/data/interfaces/http';
+import { IApplicationList } from '@app/data/interfaces/http';
 
 @Component({
   selector: 'app-list',
@@ -22,7 +22,7 @@ export class ListComponent implements OnInit {
 
   getApplicant(): void {
     this._applicantService.getApplicant()
-      .subscribe((res: IApplication[]) => {
+      .subscribe((res: IApplicationList[]) => {
         this.solicitudes = res;
       })
   }

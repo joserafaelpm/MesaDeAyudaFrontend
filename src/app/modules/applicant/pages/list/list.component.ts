@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { IActivity, IApplication, IState } from '@app/data/interfaces/http';
+import { IActivity, IApplicationList, IState } from '@app/data/interfaces/http';
 import { ApplicantService } from '@core/services/applicant.service';
 
 @Component({
@@ -10,7 +10,7 @@ import { ApplicantService } from '@core/services/applicant.service';
 })
 export class ListComponent implements OnInit {
 
-  solicitudes: IApplication[] = [];
+  solicitudes: IApplicationList[] = [];
 
   constructor(
     private _applicantService: ApplicantService,
@@ -22,23 +22,9 @@ export class ListComponent implements OnInit {
 
   getApplicant(): void {
     this._applicantService.getApplicant()
-      .subscribe((res: IApplication[]) => {
+      .subscribe((res: IApplicationList[]) => {
         this.solicitudes = res;
       })
-  }
-
-  getActivity(activity: number | IActivity): string {
-    if(typeof activity === 'number') {
-      return activity.toString();
-    }
-    return activity.descripcion!;
-  }
-
-  getState(state: number | IState): string {
-    if(typeof state === 'number') {
-      return state.toString();
-    }
-    return state.nombre!;
   }
 
 }
