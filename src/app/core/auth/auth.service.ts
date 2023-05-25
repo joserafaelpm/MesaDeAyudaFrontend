@@ -109,6 +109,10 @@ export class AuthService {
     return roles.some((role: ROLE) => this.currentUserSubject.getValue().rol.descripcion === role);
   }
 
+  public hasRoles(roles: string[]): boolean {
+    return roles.some((role: string) => this.currentUserSubject.getValue().rol.descripcion === role);
+  }
+
   private handleError(error: HttpErrorResponse): Observable<never> {
     return throwError(() => error);
   }

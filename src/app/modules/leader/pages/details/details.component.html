@@ -1,69 +1,90 @@
-
 <div class="col-md-10">
     <div class="card" style="margin-top:10px;">
         <div class="card-header">
             <div class="card-title"><b>Detalles de la solicitud</b></div>
-            <small id="help" class="form-text text-muted">Informacion detalla de la solicitud previamente creada.</small>
+            <small id="help" class="form-text text-muted">Informacion detalla de la solicitud previamente
+                creada.</small>
         </div>
         <div class="card-body">
-            <div class="form-group">
-                <label for="exampleFormControlSelect1"><b>Categoria</b></label>
-                <input class="form-control"id="categoria" name="categoria" [(ngModel)]="applicantList.actividad.categoria.descripcion" value="Categoria"  disabled>
-            </div>
-            <div class="form-group">
-                <label for="exampleFormControlSelect1"><b>Actividad</b></label>
-                <input class="form-control" id="exampleFormControlSelect1"  [(ngModel)]="applicantList.actividad.descripcion" value="Pantalla azul" disabled>
-            </div>
-            <div class="form-group">
-                <label for="exampleFormControlSelect1"><b>Estado</b></label>
-                <select class="form-control" id="exampleFormControlSelect1" [(ngModel)]="applicantList.estado.nombre" value="" >
-                    <option value="1">En tramite</option>
-                    <option value="2">Rechazada</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label><b>Fecha de ristro</b></label>
-                <div class="input-group">
-                    <input type="datetime" class="form-control" id="datepicker" name="datepicker" value="{{ applicantList.fecha | date: 'dd/MM/yyyy' }}"  disabled>
+            <!-- <form autocomplete="off" (ngSubmit)="updateApplicant(applicantList.id)"> -->
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1"><b>Categoria</b></label>
+                    <input class="form-control" id="categoria" name="categoria"
+                        [(ngModel)]="applicantList.actividad.categoria.descripcion" value="Categoria" disabled>
                 </div>
-            </div>
-            <div class="form-group">
-                <label><b>Fecha de Inicio</b></label>
-                <div class="input-group">
-                    <input type="datetime"  class="form-control" id="datepicker" value="{{ applicantList.fecha_inicio | date: 'dd/MM/yyyy' }}" placeholder="dd/MM/yyyy" name="datepicker">
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1"><b>Actividad</b></label>
+                    <input class="form-control" id="exampleFormControlSelect1"
+                        [(ngModel)]="applicantList.actividad.descripcion" value="Pantalla azul" disabled>
                 </div>
-            </div>
-            <div class="form-group">
-                <label><b>Fecha de Entrega</b></label>
-                <div class="input-group">
-                    <input type="datetime" class="form-control" id="datepicker" value="{{ applicantList.fecha_entrega | date: 'dd/MM/yyyy' }}" placeholder="dd/MM/yyyy" name="datepicker">
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1"><b>Estado</b></label>
+                    <select class="form-control" id="exampleFormControlSelect1"
+                        [(ngModel)]="applicantList.estado.nombre" value="">
+                        <option value="1">En tramite</option>
+                        <option value="2">Rechazada</option>
+                    </select>
                 </div>
-            </div>
-            <div class="form-group">
-                <label><b>Fecha de Cierre</b></label>
-                <div class="input-group">
-                    <input type="datetime" class="form-control" id="datepicker" value="{{applicantList.fecha_cierre | date: 'dd/MM/yyyy'}}" placeholder="dd/MM/yyyy" name="datepicker" disabled>
+                <div class="form-group">
+                    <label><b>Fecha de ristro</b></label>
+                    <div class="input-group">
+                        <input type="datetime" class="form-control" id="datepicker" name="datepicker"
+                            value="{{ applicantList.fecha | date: 'dd/MM/yyyy' }}" disabled>
+                    </div>
                 </div>
-            </div>
-            <div class="form-group">
-                <label for="exampleFormControlSelect1"><b>Tecnico asignado</b></label>
-                <select class="form-control" id="tecnico" name="tecnico" [(ngModel)]="applicantList.usuario_tecnico!.first_name">
-                    <option>Jorge Perez</option>
-                    <option>Carlos Perez</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="comment"><b>Observaciones</b></label>
-                <textarea class="form-control" id="descripcion" name="descripcion" [(ngModel)]="applicantList.observacion" rows="5" placeholder="Ninguna observacion"></textarea>
-            </div>
-            <div class="form-group">
-                <label for="comment"><b>Descripcion</b></label>
-                <textarea class="form-control" id="descripcion" name="descripcion" [(ngModel)]="applicantList.descripcion" rows="5" placeholder="Por favor ser explicito y claro." disabled></textarea>
-            </div>
+                <div class="form-group">
+                    <label><b>Fecha de Inicio</b></label>
+                    <div class="input-group">
+                        <input type="datetime" class="form-control" id="datepicker"
+                            value="{{ applicantList.fecha_inicio | date: 'dd/MM/yyyy' }}" placeholder="dd/MM/yyyy"
+                            name="datepicker">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label><b>Fecha de Entrega</b></label>
+                    <div class="input-group">
+                        <input type="datetime" class="form-control" id="datepicker"
+                            value="{{ applicantList.fecha_entrega | date: 'dd/MM/yyyy' }}" placeholder="dd/MM/yyyy"
+                            name="datepicker">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label><b>Fecha de Cierre</b></label>
+                    <div class="input-group">
+                        <input type="datetime" class="form-control" id="datepicker"
+                            value="{{applicantList.fecha_cierre | date: 'dd/MM/yyyy'}}" placeholder="dd/MM/yyyy"
+                            name="datepicker" disabled>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1"><b>Tecnico asignado</b></label>
+                    <select class="form-control" id="tecnico" name="tecnico"
+                        [(ngModel)]="applicantList.usuario_tecnico!.first_name">
+                        <option>Jorge Perez</option>
+                        <option>Carlos Perez</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="comment"><b>Observaciones</b></label>
+                    <textarea class="form-control" id="descripcion" name="descripcion"
+                        [(ngModel)]="applicantList.observacion" rows="5" placeholder="Ninguna observacion"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="comment"><b>Descripcion</b></label>
+                    <textarea class="form-control" id="descripcion" name="descripcion"
+                        [(ngModel)]="applicantList.descripcion" rows="5" placeholder="Por favor ser explicito y claro."
+                        disabled></textarea>
+                </div>
+                <div class="card-action">
+                    <a class="btn btn-warning" routerLink="/leader/list">
+                        <b>Volver</b>
+                    </a>
+                    <button type="submit" class="btn btn-success" style="margin-left:10px ;">
+                        <b>Guardar</b>
+                    </button>
+                </div>
+            <!-- </form> -->
         </div>
-        <div class="card-action">
-            <a class="btn btn-warning" routerLink="/leader/list"><b>Volver</b></a>
-            <button class="btn btn-success" style="margin-left:10px ;" routerLink="/leader/list"><b>Guardar</b></button>
-        </div>
+
     </div>
 </div>

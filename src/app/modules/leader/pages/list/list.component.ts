@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { ApplicantService } from '@app/core/services/applicant.service';
 import { IApplicationList } from '@app/data/interfaces/http';
+import { RoleDirective } from '@shared/directives/role.directive';
 
 @Component({
   selector: 'app-list',
