@@ -1,0 +1,56 @@
+<div class="page-header">
+    <h1 class="page-title"><b>Solicitudes Registradas</b></h1>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <div class="d-flex align-items-center">
+                    <h1 class="card-title"><b>Solicitudes</b></h1>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table id="add-row" class="display table table-striped table-hover" >
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Solicitante</th>
+                                <th>Fecha de creacion</th>
+                                <th>Categoria</th>
+                                <th>Actividad</th>
+                                <th>Estado</th>
+                                <th>Fecha de Inicio</th>
+                                <th>Fecha de Entrega</th>
+                                <th>Fecha de Cierre</th>
+                                <th>Tecnico asignado</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let solicitud of solicitudes;">
+                                <td>{{ solicitud.id }}</td>
+                                <td>{{ solicitud.usuario_solicitante.first_name }}</td>
+                                <td>{{ solicitud.fecha | date: 'dd/MM/yyyy' }}</td>
+                                <td>{{ solicitud.actividad.categoria.descripcion }}</td>
+                                <td>{{ solicitud.actividad.descripcion }}</td>
+                                <td>{{ solicitud.estado.nombre }}</td>
+                                <td>{{ solicitud.fecha_inicio | date: 'dd/MM/yyyy' }}</td>
+                                <td>{{ solicitud.fecha_entrega | date: 'dd/MM/yyyy' }}</td>
+                                <td>{{ solicitud.fecha_cierre | date: 'dd/MM/yyyy' }}</td>
+                                <td>{{ solicitud.usuario_tecnico.first_name }}</td>
+                                <td>
+                                    <div class="form-button-action">
+                                        <a [routerLink]="['/leader/detail/', solicitud.id]" type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Edit Task">
+                                            <i class="fas fa-search"></i>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

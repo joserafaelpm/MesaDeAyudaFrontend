@@ -1,0 +1,43 @@
+<div class="col-md-10">
+    <div class="card" style="margin-top:10px;">
+        <div class="card-header">
+            <div class="card-title"><b>Registro de solicitud</b></div>
+            <small id="help" class="form-text text-muted">Por favor digitar toda la informacion solicita.</small>
+        </div>
+        <form autocomplete="off" (ngSubmit)="createApplicant()">
+            <div class="card-body" *ngIf="categories != undefined && activities != undefined">
+                <div class="form-group" *ngIf="categories">
+                    <label for="exampleFormControlSelect1"><b>Seleccione la categoria</b></label>
+                    <select class="form-control" id="categoria" name="categoria" (change)="changeCategory($event)"
+                        required>
+                        <option [value]="null" selected disabled hidden>Seleccione una Categoria</option>
+                        <option *ngFor="let category of categories" [value]="category.id">
+                            {{category.descripcion}}
+                        </option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1"><b>Seleccione la actividad</b></label>
+                    <select class="form-control" id="actividad" name="actividad" (change)="changeActivity($event)"
+                        required>
+                        <option [value]="null" selected disabled hidden>Seleccione una Actividad</option>
+                        <option *ngFor="let activity of activitiesCopy" [value]="activity.id">
+                            {{activity.descripcion}}
+                        </option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="comment"><b>Descripcion</b></label>
+                    <textarea class="form-control" id="descripcion" name="descripcion" id="descripcion"
+                        [(ngModel)]="applicant.descripcion" rows="5" placeholder="Por favor ser explicito y claro."
+                        required></textarea>
+                </div>
+            </div>
+            <div class="card-action">
+                <button type="submit" class="btn btn-success">
+                    <b>Enviar</b>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

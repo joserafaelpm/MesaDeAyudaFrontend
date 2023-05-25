@@ -1,0 +1,53 @@
+<div class="page-header">
+    <h1 class="page-title"><b>Solicitudes creadas</b></h1>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <div class="d-flex align-items-center">
+                    <h1 class="card-title"><b>Solicitudes</b></h1>
+                    <button class="btn btn-primary btn-round ml-auto" data-toggle="modal" data-target="#addRowModal" routerLink="/applicant/add">
+                        <i class="fa fa-plus" style="margin-right:5px ;"></i>
+                        <b>Crear solicitud</b>
+                    </button>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table id="add-row" class="display table table-striped table-hover" >
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Fecha</th>
+                                <th>Actividad</th>
+                                <th>Estado</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let solicitud of solicitudes;">
+                                <td>{{ solicitud.id }}</td>
+                                <td>{{ solicitud.fecha | date: 'dd/MM/yyyy' }}</td>
+                                <td >{{ getActivity(solicitud.actividad!) }}</td>
+                                <td>{{ getState(solicitud.estado!) }}</td>
+                                <td>
+                                    <div class="form-button-action">
+                                        <a [routerLink]="['/applicant/detail/', solicitud.id]"
+                                            type="button"
+                                            data-toggle="tooltip"
+                                            title=""
+                                            class="btn btn-link btn-primary btn-lg"
+                                            data-original-title="Edit Task">
+                                            <i class="fas fa-search"></i>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

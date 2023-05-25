@@ -1,0 +1,63 @@
+<div class="col-md-10">
+    <div class="card" style="margin-top:10px;">
+        <div class="card-header">
+            <div class="card-title"><b>Detalles de la solicitud</b></div>
+            <small id="help" class="form-text text-muted">Informacion detalla de la solicitud previamente
+                creada.</small>
+        </div>
+        <div class="card-body">
+            <div class="form-group">
+                <label for="exampleFormControlSelect1"><b>Categoria</b></label>
+                <input class="form-control" id="categoria" [(ngModel)]="applicant.actividad" value="categoria" disabled>
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlSelect1"><b>Actividad</b></label>
+                <input class="form-control" id="actvidad" [(ngModel)]="applicant.actividad" value="actvidad" disabled>
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlSelect1"><b>Estado</b></label>
+                <select class="form-control" id="estado" [(ngModel)]="applicant.estado" name="estado" value="En tramite">
+                    <option>Pendiente</option>
+                    <option>Cerrada</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label><b>Fecha de Inicio</b></label>
+                <div class="input-group">
+                    <input type="datetime" class="form-control" value="{{applicant.fecha_inicio | date: 'dd/MM/yyyy'}}" id="fecha_inicio" name="fecha_inicio" disabled>
+                </div>
+            </div>
+            <div class="form-group">
+                <label><b>Fecha de Entrega</b></label>
+                <div class="input-group">
+                    <input type="datetime" class="form-control" value="{{applicant.fecha_entrega | date: 'dd/MM/yyyy'}}" id="fecha_entrega" name="fecha_entrega" disabled>
+                </div>
+            </div>
+            <div class="form-group">
+                <label><b>Fecha de Cierre</b></label>
+                <div class="input-group">
+                    <input type="datetime" class="form-control" value="{{applicant.fecha_cierre | date: 'dd/MM/yyyy'}}" id="fecha_cierre" name="fecha_cierre">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlSelect1"><b>Tecnico asignado</b></label>
+                <input class="form-control" id="usuario_tecnico" name="usuario_tecnico" [(ngModel)]="applicant.usuario_tecnico" value="Jorge Perez" disabled>
+            </div>
+            <div class="form-group">
+                <label for="comment"><b>Observaciones</b></label>
+                <textarea class="form-control" id="observacion" name="observacion" [(ngModel)]="applicant.observacion" rows="5"
+                    placeholder="Ninguna observacion"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="comment"><b>Descripcion</b></label>
+                <textarea class="form-control" id="descripcion" [(ngModel)]="applicant.descripcion" name="descripcion" rows="5"
+                    placeholder="Por favor ser explicito y claro." disabled></textarea>
+            </div>
+        </div>
+        <div class="card-action">
+            <a class="btn btn-warning" routerLink="/technical/list"><b>Volver</b></a>
+            <button class="btn btn-success" style="margin-left:10px ;"
+                routerLink="/technical/list"><b>Guardar</b></button>
+        </div>
+    </div>
+</div>

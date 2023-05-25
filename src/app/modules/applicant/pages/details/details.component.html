@@ -1,0 +1,56 @@
+
+<div class="col-md-10">
+    <div class="card" style="margin-top:10px;">
+        <div class="card-header">
+            <div class="card-title"><b>Detalles de la solicitud</b></div>
+            <small id="help" class="form-text text-muted">Informacion detalla de la solicitud previamente creada.</small>
+        </div>
+        <div class="card-body">
+            <div class="form-group">
+                <label for="exampleFormControlSelect1"><b>Categoria</b></label>
+                <input class="form-control" id="categoria" name="categoria" [(ngModel)]="applicant.actividad" disabled>
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlSelect1"><b>Actividad</b></label>
+                <input class="form-control" id="exampleFormControlSelect1" [(ngModel)]="applicant.actividad" value="Actividad" disabled>
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlSelect1"><b>Estado</b></label>
+                <input class="form-control" id="exampleFormControlSelect1" [(ngModel)]="applicant.estado" value="En tramite" disabled>
+            </div>
+            <div class="form-group">
+                <label><b>Fecha de ristro</b></label>
+                <div class="input-group">
+                    <input type="datetime" class="form-control" id="datepicker" name="datepicker" value="{{applicant.fecha | date: 'dd/MM/yyyy'}}" disabled>
+                </div>
+            </div>
+            <div class="form-group">
+                <label><b>Fecha de Inicio</b></label>
+                <div class="input-group">
+                    <input type="datetime" class="form-control" id="datepicker" name="datepicker" value="{{applicant.fecha | date: 'dd/MM/yyyy'}}" disabled>
+                </div>
+            </div>
+            <div class="form-group">
+                <label><b>Fecha de Cierre</b></label>
+                <div class="input-group">
+                    <input type="datetime" class="form-control" id="datepicker" name="datepicker"  value="{{applicant.fecha | date: 'dd/MM/yyyy'}}" disabled>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlSelect1"><b>Tecnico asignado</b></label>
+                <input class="form-control" id="tecnico" name="tecnico" placeholder="No hay tecnico asignado"  [(ngModel)]="applicant.usuario_tecnico" disabled/>
+            </div>
+            <div class="form-group">
+                <label for="comment"><b>Observaciones</b></label>
+                <textarea class="form-control" id="descripcion" name="descripcion" rows="5" placeholder="Ninguna observacion" [(ngModel)]="applicant.observacion" disabled></textarea>
+            </div>
+            <div class="form-group">
+                <label for="comment"><b>Descripcion</b></label>
+                <textarea class="form-control" id="descripcion" name="descripcion" rows="5" placeholder="Por favor ser explicito y claro." [(ngModel)]="applicant.descripcion" disabled></textarea>
+            </div>
+        </div>
+        <div class="card-action">
+            <button class="btn btn-success" routerLink="/applicant/list"><b>Volver</b></button>
+        </div>
+    </div>
+</div>

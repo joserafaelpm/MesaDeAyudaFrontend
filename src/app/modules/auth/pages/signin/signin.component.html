@@ -1,0 +1,33 @@
+<body class="login">
+	<div class="wrapper wrapper-login">
+		<div class="container container-login animated fadeIn">
+			<h3 class="text-center">Inicio de sesion Mesa de ayuda</h3>
+			<div class="login-form">
+                <form (ngSubmit)="iniciarSession()">
+					<div class="form-group form-floating-label">
+						<input id="username" name="username" [(ngModel)]="user.username" type="text" class="form-control input-border-bottom" required>
+						<label for="username" class="placeholder">Username</label>
+					</div>
+					<div class="form-group form-floating-label">
+						<input id="password" name="password" [(ngModel)]="user.password" type="password" class="form-control input-border-bottom" required>
+						<label for="password" class="placeholder">Password</label>
+					</div>
+					<div class="row form-sub m-0">
+						<a routerLink="/auth/sing-up" class="link float-right">Olvidaste tu contraseña?</a>
+					</div>
+					<div class="form-action mb-3">
+						<button type="submit" class="btn btn-primary btn-rounded btn-login">Iniciar Sesion</button>
+					</div>
+            	</form>
+				<div class="login-account">
+					<span class="msg">Estas registrado? </span>
+					<a routerLink="/auth/sing-up" id="show-signup" class="link">Registrarme</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+<button (click)="cerrarSession()">
+    Cerrar Session
+</button>
